@@ -37,7 +37,7 @@ group :development, :test do
 end
 
 group :development do
-  # gem 'erb_lint', require: true
+  gem 'erb_lint', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'overcommit', require: false
   gem 'pre-commit', require: false

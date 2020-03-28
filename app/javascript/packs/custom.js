@@ -57,9 +57,9 @@ $(document).ready(function(){
       // this.setHeading();
     },
 
-    // setHeading: function() {
-    //   // $('h1').css('color', 'blue');
-    // }
+    setHeading: function() {
+      // $('h1').css('color', 'blue');
+    }
   }
   Custom.init();
 });
