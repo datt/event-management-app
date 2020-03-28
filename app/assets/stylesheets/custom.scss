@@ -1,0 +1,12 @@
+$color-primary: #007bff;
+$color-sec: #0f1316;
+.primary-bg {
+  background: $color-primary;
+}
+.sec-bg {
+  background: $color-sec;
+}
+.footer {
+  @extend .sec-bg;
+  min-height: 60px;
+}
