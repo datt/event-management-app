@@ -82,19 +82,19 @@ PreCommit:
     include: '**/*.html'
     exclude: 'doc/**/*'
 
-  HtmlTidy:
-    enabled: true
-    description: 'Analyze HTML with tidy'
-    required_executable: 'tidy'
-    flags: ['-errors', '-quiet', '-utf8']
-    include: '**/*.html'
-    exclude: 'doc/**/*'
+  # HtmlTidy:
+  #   enabled: true
+  #   description: 'Analyze HTML with tidy'
+  #   required_executable: 'htmltidy2'
+  #   flags: ['-errors', '-quiet', '-utf8']
+  #   include: '**/*.html'
+  #   exclude: 'doc/**/*'
 
   ImageOptim:
     enabled: true
     description: 'Check for optimizable images'
     required_executable: 'image_optim'
-    install_command: 'gem install image_optim'
+    install_command: 'gem install image_optim_rails'
     include:
       - '**/*.gif'
       - '**/*.jpeg'

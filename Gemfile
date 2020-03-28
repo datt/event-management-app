@@ -39,6 +39,8 @@ end
 group :development do
   gem 'erb_lint', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'image_optim', require: false
+  gem 'image_optim_pack', require: false
   gem 'overcommit', require: false
   gem 'pre-commit', require: false
   gem 'rails_best_practices'
