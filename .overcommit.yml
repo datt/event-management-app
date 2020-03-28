@@ -1,0 +1,141 @@
+# Use this file to configure the Overcommit hooks you wish to use. This will
+# extend the default configuration defined in:
+# https://github.com/sds/overcommit/blob/master/config/default.yml
+#
+# At the topmost level of this YAML file is a key representing type of hook
+# being run (e.g. pre-commit, commit-msg, etc.). Within each type you can
+# customize each hook, such as whether to only run it on certain files (via
+# `include`), whether to only display output if it fails (via `quiet`), etc.
+#
+# For a complete list of hooks, see:
+# https://github.com/sds/overcommit/tree/master/lib/overcommit/hook
+#
+# For a complete list of options that you can use to customize hooks, see:
+# https://github.com/sds/overcommit#configuration
+#
+# Uncomment the following lines to make the configuration take effect.
+verify_signatures: false
+
+gemfile: Gemfile
+PreCommit:
+  ALL:
+    exclude: &default_excludes
+      - 'node_modules/**/*'
+      - 'vendor/**/*'
+      - 'doc/**/*'
+  RuboCop:
+    enabled: true
+    on_warn: fail
+    description: 'Analyze with RuboCop'
+    required_executable: 'rubocop'
+    flags: ['--format=emacs', '--force-exclusion', '--display-cop-names']
+    install_command: 'gem install rubocop'
+    include:
+      - '**/*.gemspec'
+      - '**/*.rake'
+      - '**/*.rb'
+      - '**/*.ru'
+      - '**/Gemfile'
+      - '**/Rakefile'
+
+  RailsBestPractices:
+    enabled: true
+    description: 'Analyze with RailsBestPractices'
+    required_executable: 'rails_best_practices'
+    flags: ['--without-color']
+    install_command: 'gem install rails_best_practices'
+    exclude:
+      - 'app/controllers/*'
+
+  TrailingWhitespace:
+    enabled: true
+    exclude:
+      - 'node_modules/**/*'
+      - 'vendor/**/*'
+      - 'doc/**/*'
+      - '**/db/structure.sql' # Ignore trailing whitespace in generated files
+
+  CaseConflicts:
+    enabled: true
+    description: 'Check for case-insensitivity conflicts'
+    quiet: false
+
+  EsLint:
+    enabled: true
+    description: 'Analyze with ESLint'
+    required_executable: 'eslint'
+    flags: ['--format=compact']
+    install_command: 'yarn global add eslint'
+    include: '**/*.js'
+    exclude: 'doc/**/*'
+
+  CaseConflicts:
+    enabled: true
+    description: 'Check for case-insensitivity conflicts'
+    quiet: false
+
+  HtmlHint:
+    enabled: true
+    description: 'Analyze with HTMLHint'
+    required_executable: 'htmlhint'
+    install_command: 'yarn global add htmlhint'
+    include: '**/*.html'
+    exclude: 'doc/**/*'
+
+  HtmlTidy:
+    enabled: true
+    description: 'Analyze HTML with tidy'
+    required_executable: 'tidy'
+    flags: ['-errors', '-quiet', '-utf8']
+    include: '**/*.html'
+    exclude: 'doc/**/*'
+
+  ImageOptim:
+    enabled: true
+    description: 'Check for optimizable images'
+    required_executable: 'image_optim'
+    install_command: 'gem install image_optim'
+    include:
+      - '**/*.gif'
+      - '**/*.jpeg'
+      - '**/*.jpg'
+      - '**/*.png'
+      - '**/*.svg'
+
+  MergeConflicts:
+    enabled: true
+    description: 'Check for merge conflicts'
+    quiet: false
+    required_executable: 'grep'
+    flags: ['-IHn', "^<<<<<<<[ \t]"]
+
+  YamlSyntax:
+    enabled: true
+    description: 'Check YAML syntax'
+    required_library: 'yaml'
+    include:
+      - '**/*.yaml'
+      - '**/*.yml'
+
+  Stylelint:
+    enabled: true
+    description: 'Check styles with Stylelint'
+    require_executable: 'stylelint'
+    flags: ['-f', 'compact']
+    install_command: 'yarn global add stylelint stylelint-config-standard --save-dev'
+    exclude:
+      - 'doc/**/*'
+      - '**/bootstrap.min.css'
+      - '**/adminator.scss'
+    include:
+      - '**/*.scss'
+      - '**/*.css'
+      - '**/*.less'
+
+#
+#PostCheckout:
+#  ALL: # Special hook name that customizes all hooks of this type
+#    quiet: true # Change all post-checkout hooks to only display output on failure
+#
+#  IndexTags:
+#    enabled: true # Generate a tags file with `ctags` each time HEAD changes
