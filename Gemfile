@@ -5,11 +5,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'active_decorator', github: 'amatsuda/active_decorator', branch: 'master'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 gem 'nokogiri'
+gem 'pg'
+gem 'premailer-rails'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
