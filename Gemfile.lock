@@ -95,6 +95,10 @@ GEM
     crass (1.0.6)
     css_parser (1.7.1)
       addressable
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erb_lint (0.0.30)
       activesupport
       better_html (~> 1.0.7)
@@ -289,6 +293,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  dotenv-rails
   erb_lint
   image_optim
   image_optim_pack
@@ -317,4 +322,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
