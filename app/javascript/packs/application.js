@@ -8,7 +8,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap")
-require("tempusdominus-bootstrap-4")
 require("jquery")
 require("packs/custom")
 import "flatpickr/dist/flatpickr.min.css"
