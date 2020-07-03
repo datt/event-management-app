@@ -1,5 +1,14 @@
 $color-primary: #007bff;
-$color-sec: #0f1316;
+$color-sec: #ced1d4ab;
+
+html, body{
+  height: 100%
+}
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -100px;
+  padding-bottom: 100px;
+}
 .primary-bg {
   background: $color-primary;
 }

@@ -8,9 +8,11 @@
   </head>
 
   <body>
-    <%= render 'shared/header'%>
-    <%= yield %>
-    <%= render 'shared/footer'%>
+    <div class="wrapper">
+      <%= render 'shared/header'%>
+      <%= yield %>
+      <%= render 'shared/footer'%>
+    </div>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-eval': false %>
   </body>
 </html>
