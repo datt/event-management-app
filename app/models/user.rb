@@ -2,7 +2,7 @@ class User < ApplicationRecord
   ALLOWED_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   ALLOWED_PHONE_REGEX = /.+/i # Don't know the correct requirements
 
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
   validates :email, presence: true, format: { with: ALLOWED_EMAIL_REGEX }
   validates :phone, presence: true, format: { with: ALLOWED_PHONE_REGEX }
 

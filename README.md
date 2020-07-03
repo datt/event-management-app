@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Evaamo ;) - This is an event management application. 
 
-Things you may want to cover:
+# Problem Statement
+The application has two main entities, Users and Events
+A user can create an event and can add other users as a part of the event, each user can update their rsvp for the event, 'yes', 'no', 'maybe'
+A user can choose to attend an event, in such case, if there is another overlapping event for the same user, it should automatically update the rsvp as 'no'
 
-* Ruby version
 
-* System dependencies
+## Assumptions
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Phone validation is not correct, need to add proper validation. Need proper requirements as every country has it's own format.
+2. Event field 'allday' default: false
+3. Didn't want to commit csv files but to work, pushing
+4. While Importing event first user considered as creator
