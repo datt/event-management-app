@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     events = Event.includes(:creator).all
     if params[:user_id].present?
       events = events.joins(:event_users)
-                    .where('event_users.user_id'=> params[:user_id], 'event_users.rsvp'=> 'yes')
+                     .where('event_users.user_id'=> params[:user_id], 'event_users.rsvp'=> 'yes')
     end
     if params[:start_range].present? && params[:end_range].present?
       events = events.between_dates(params[:start_range], params[:end_range])
