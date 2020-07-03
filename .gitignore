@@ -49,3 +49,4 @@ config/database.yml
 .rspec
 .yardoc/*
 .env
+doc/*

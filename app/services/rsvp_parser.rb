@@ -4,10 +4,14 @@ class RsvpParser # Parses event of csv row
   USERNAME_SEPERATOR = '#'.freeze
 
   attr_reader :rsvp
+  # @param rsvp [String]
+  # @example 'brian#no;kourtney#yes;bob#maybe'
   def initialize(rsvp)
     @rsvp = rsvp
   end
 
+  # @return [Array] array of hash
+  # @example [{ username: 'brian', rsvp: 'no'}, { username: 'bob', rsvp: 'maybe'}]
   def parse
     return {} unless rsvp.present?
     # TODO: Update with regex logic maybe
