@@ -1,6 +1,8 @@
-var Custom;
+import flatpickr from "flatpickr"
+let Custom;
+
 $(document).ready(function(){
-  var s;
+  let s;
   Custom = {
     settings: {
       ajaxDefaults: {
@@ -54,7 +56,7 @@ $(document).ready(function(){
     },
 
     bindUIActions: function() {
-      // this.setHeading();
+      flatpickr(".datepicker", {});
     },
 
     setHeading: function() {

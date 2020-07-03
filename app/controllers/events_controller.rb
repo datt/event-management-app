@@ -1,21 +1,23 @@
 class EventsController < ApplicationController
   def index
     @events = filter_events
+    # TODO: Setup a user search from form with user input, Do search with autocomplete
+    @users = User.all
   end
 
   private
 
   # TODO: custom logic written, can move to filter services
   def filter_events
-    if params[:start_range] && params[:end_range].present?
-      events = Event.between_dates(params[:start_range], params[:end_range])
-      if params[:user_id].present?
-        event_users = EventUser.where(event_id: events.ids, user_id: params[:user_id], rspvp: 'yes')
-        events = events.select { |event| event_users.pluck(:event_id).include?(event.id) }
-      end
-    else
-      events = Event.all
+    events = Event.includes(:creator).all
+    if params[:user_id].present?
+      events = events.joins(:event_users)
+                    .where('event_users.user_id'=> params[:user_id], 'event_users.rsvp'=> 'yes')
     end
+    if params[:start_range].present? && params[:end_range].present?
+      events = events.between_dates(params[:start_range], params[:end_range])
+    end
+
     paginate(events)
   end
 

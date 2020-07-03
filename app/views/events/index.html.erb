@@ -1,36 +1,57 @@
 <div class="container">
   <div class="row">
+    <h1>Event management</h1>
+    <p id="notice"><%= notice %></p>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <%= form_tag('/', method: :get, class: 'event-filter form-inline') do %>
+        <input type="text" value="<%= params[:start_range].presence %>" placeholder="<%= params[:start_range].presence || 'Start Date' %>" name="start_range" class='form-control mb-2 mr-sm-2 datepicker' />
+        <input type="text" value="<%= params[:end_range].presence %>" placeholder="<%= params[:end_range].presence || 'End Date' %>" name="end_range" class='form-control mb-2 mr-sm-2 datepicker' />
+        <%= select_tag "user_id", options_from_collection_for_select(@users, "id", "username",params[:user_id]), class: 'form-control custom-select custom-select-md mb-2 mr-sm-2', include_blank: "Select User" %>
+        <%= submit_tag 'Filter', name: '', class: 'event-filter__button btn btn-primary mb-2' %>
+        <a href="/events" class="btn mb-2">Clear</a>
+      <% end %>
+    </div>
+    <div class="col-4">
+      <%= render 'shared/custom_paginate', pages: @total_pages %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col">
-
-      <p id="notice"><%= notice %></p>
-
-      <h1>Events</h1>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Created By</th>
-            <th>Description</th>
-            <th>Start time</th>
-            <th>End time</th>
-            <th>All Day?</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @events.each do |event| %>
+      <% if @events.size > 0 %>
+        <table class="table">
+          <thead>
             <tr>
-              <td><%= event.title %></td>
-              <td><%= event.user_name %></td>
-              <td><%= event.description %></td>
-              <td><%= event.start_datetime %></td>
-              <td><%= event.end_datetime %></td>
-              <td><%= event.all_day? %></td>
+              <th>Title</th>
+              <th>Created By</th>
+              <th>Description</th>
+              <th>Start time</th>
+              <th>End time</th>
+              <th>All Day?</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+              <% @events.each do |event| %>
+                <tr>
+                  <td><%= event.title %></td>
+                  <td><%= event.user_name %></td>
+                  <td><%= event.description %></td>
+                  <td><%= event.start_datetime %></td>
+                  <td><%= event.end_datetime %></td>
+                  <td><%= event.all_day? %></td>
+                </tr>
+              <% end %>
+          </tbody>
+        </table>
+        <% else %>
+
+          <p class="alert alert-danger text-enter">
+            No results found
+          </p>
+        <% end %>
+
 
       <br>
 

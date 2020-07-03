@@ -1,3 +1,4 @@
+require 'csv'
 module Seeder
   class EventSeeder
     EVENTS_FILE = 'events.csv'.freeze
@@ -27,7 +28,7 @@ module Seeder
       if attrs[:allday] == 'true'
         @event.endtime = nil
       else
-        @event.endtime = DateTime.parse(attrs[:starttime])
+        @event.endtime = DateTime.parse(attrs[:endtime])
       end
       @event.update!(attrs.slice(*EVENT_PENDING_FIELDS))
     end
