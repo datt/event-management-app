@@ -1,7 +1,7 @@
 module Seeder
   class EventSeeder
     EVENTS_FILE = 'events.csv'.freeze
-    EVENT_PENDING_FIELDS = %i(description endtime allday)
+    EVENT_PENDING_FIELDS = %i(description allday)
 
     attr_reader :attrs, :row_index
     def initialize(attrs, row_index)
@@ -17,11 +17,18 @@ module Seeder
       end
       puts users_id_rsvp.first
       import_event(users_id_rsvp.first)
-      # import_event_users(users_id_rsvp)
+      import_event_users(users_id_rsvp)
     end
 
     def import_event(user_id_rsvp)
-      @event = Event.find_or_initialize_by(title: attrs[:title], starttime: attrs[:starttime], creator_id: user_id_rsvp[:user_id])
+      @event = Event.find_or_initialize_by(title: attrs[:title], creator_id: user_id_rsvp[:user_id])
+      @event.starttime = DateTime.parse(attrs[:starttime])
+      # NOTE:  We can ignore this field, still storing
+      if attrs[:allday] == 'true'
+        @event.endtime = nil
+      else
+        @event.endtime = DateTime.parse(attrs[:starttime])
+      end
       @event.update!(attrs.slice(*EVENT_PENDING_FIELDS))
     end
 
