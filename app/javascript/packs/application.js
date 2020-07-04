@@ -10,7 +10,6 @@ require("channels")
 require("bootstrap")
 require("jquery")
 require("packs/custom")
-import "flatpickr/dist/flatpickr.min.css"
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

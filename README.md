@@ -29,6 +29,7 @@ A user can choose to attend an event, in such case, if there is another overlapp
   3. [Decorator Pattern](https://github.com/amatsuda/active_decorator)
   4. [BEM CSS standards](https://en.bem.info/methodology/quick-start/) (limited but mostly bootstrap is used)
   5. Linters
+  (Presenter pattern could've been used)
   *Many things can be improved*
 
 # Understanding Code 
@@ -49,3 +50,4 @@ A user can choose to attend an event, in such case, if there is another overlapp
   - Manual testing
   - Some TODOs are pending mentioned with #TODO
   - Code style corrections suggested by linters, Rubocop and Rails Best Practices
+  - Presenter pattern could've been used instead of view logic and helpers

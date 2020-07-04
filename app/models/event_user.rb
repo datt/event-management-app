@@ -8,7 +8,7 @@ class EventUser < ApplicationRecord # For user and event relation
   # Validations
   validates :user, presence: true
   validates :event, presence: true
-  validates :rsvp, presence: true
+  validates :rsvp, presence: true, inclusion: { in: %w(yes no maybe) }
   validates :user, uniqueness: { scope: :event } # One user can attend an event once
 
   # before_create :downcase_rsvp
