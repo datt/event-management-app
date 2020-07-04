@@ -4,6 +4,13 @@ $color-sec: #ced1d4ab;
 html, body{
   height: 100%
 }
+.header {
+  margin-bottom: 30px;
+}
+.event-heading {
+  margin: 0 0 30px 0;
+  color: $color-primary;
+}
 .wrapper {
   min-height: 100%;
   margin-bottom: -100px;

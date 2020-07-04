@@ -8,6 +8,11 @@ The application has two main entities, Users and Events.
 A user can create an event and can add other users as a part of the event, each user can update their rsvp for the event, 'yes', 'no', 'maybe'.
 A user can choose to attend an event, in such case, if there is another overlapping event for the same user, it should automatically update the rsvp as 'no'.
 
+## Deployment
+[Application Link](http://datt-events-demo.herokuapp.com/)
+**Heroku is used for deployment**
+*First time it takes time to load, free version of Heroku works that way. Unless any request comes every half an hour to it.*
+
 ## Assumptions
 
 1. Phone validation is not correct, need to add proper validation. Need proper requirements as every country has it's own format.
@@ -22,6 +27,7 @@ A user can choose to attend an event, in such case, if there is another overlapp
   2. `Rails 6.0.2`
   3. `Postgres 9.5`
   4. CSS Framework - `Bootstrap 4`
+  5. Heroku - for deployment
 
 ## Standards to follow
   1. [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
