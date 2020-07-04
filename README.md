@@ -28,7 +28,8 @@ A user can choose to attend an event, in such case, if there is another overlapp
   2. `Rails 6.0.2`
   3. `Postgres 9.5`
   4. CSS Framework - `Bootstrap 4`
-  5. Heroku - for deployment
+  5. JavaScript
+  6. Heroku - for deployment
 
 ## Standards to follow
   1. [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
