@@ -6,10 +6,10 @@ class EventUser < ApplicationRecord # For user and event relation
   belongs_to :user
 
   # Validations
-  validates :user, presence: true
+  validates :user, presence: true, uniqueness: { scope: :event }
+  # One user can attend an event
   validates :event, presence: true
   validates :rsvp, presence: true, inclusion: { in: %w(yes no maybe) }
-  validates :user, uniqueness: { scope: :event } # One user can attend an event once
 
   # before_create :downcase_rsvp
   before_save :auto_cancel_overlapping_event
@@ -27,7 +27,7 @@ class EventUser < ApplicationRecord # For user and event relation
     if self.rsvp == 'yes'
       event = self.event
       EventUser.joins(:event).where(user_id: self.user_id)
-               .where("events.starttime >= ? AND (events.endtime <= ? OR events.allday = ?) ", event.starttime, event.starttime.end_of_day, true)
+               .where("events.starttime >= ? AND (events.starttime <= ? OR events.allday = ?) ", event.starttime, event.starttime.end_of_day, true)
                .update_all(rsvp: 'no')
       EventUser.joins(:event).where(user_id: self.user_id)
                .where("events.starttime >= ? AND (events.endtime <= ? OR events.allday = ?) ", event.starttime, event.endtime, false)

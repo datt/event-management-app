@@ -1,6 +1,6 @@
 # README
 
-Evaamo ;) - This is an event management application. 
+Evaamo :) - This is an event management application. 
 
 # Problem Statement
 
@@ -41,8 +41,8 @@ A user can choose to attend an event, in such case, if there is another overlapp
   *Many things can be improved*
 
 # Understanding Code 
-  - Comments have been added, if not understood mail at duttdongare30@gmail.com
-  - alternatively generate documentation using `yardoc app/services/**/*.rb app/models/**/*.rb` and open doc/index.html in browser
+  - Comments have been added, if not understood kindly mail at duttdongare30@gmail.com
+  - Alternatively generate documentation using `yardoc app/services/**/*.rb app/models/**/*.rb` and open doc/index.html in browser
 
 
 ## Setup instructions
@@ -53,9 +53,10 @@ A user can choose to attend an event, in such case, if there is another overlapp
   4. `rails db:migrate`
   5. `rails db:seed`
 
-## Pending.
+## Pending tasks/enhancements
   - Unit Test cases
   - Manual testing
   - Some TODOs are pending mentioned with #TODO
+  - Front end enhancements like setting active for page, resetting the date etc.
   - Code style corrections suggested by linters, Rubocop and Rails Best Practices
   - Presenter pattern could've been used instead of view logic and helpers
