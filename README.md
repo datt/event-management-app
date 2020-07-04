@@ -19,8 +19,9 @@ A user can choose to attend an event, in such case, if there is another overlapp
 2. Event field 'allday' default: false
 3. While Importing event first user considered as creator
 4. User having more than one overlapping events. In such case consider the rsvp of last overlapping event to be `yes` - This is handled by model callback
-5. Didn't understand the 'Slot' thing, so assumed to filter by user id with date range.
-6. Didn't want to commit csv files but to make it work, commited files.
+5. If allday is true, endtime is considered as same day as starttime day with  11.59 pm as time (end_of_day).
+6. Didn't understand the 'Slot' thing, so assumed to filter by user id with date range.
+7. Didn't want to commit csv files but to make it work, commited files.
 
 ## Tech Stack with version
   1. `Ruby 2.6.3`
