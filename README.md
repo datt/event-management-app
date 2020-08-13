@@ -1,6 +1,6 @@
 # README
 
-Evaamo ;) - This is an event management application. 
+Evaamo ;) - This is a demo event management application.
 
 # Problem Statement
 
@@ -8,19 +8,19 @@ The application has two main entities, Users and Events.
 A user can create an event and can add other users as a part of the event, each user can update their rsvp for the event, 'yes', 'no', 'maybe'.
 A user can choose to attend an event, in such case, if there is another overlapping event for the same user, it should automatically update the rsvp as 'no'.
 
+The data must be feeded from the CSVs, they must be parsed properly and feeded into DB.
+
 ## Deployment
 [Application Link](http://datt-events-demo.herokuapp.com/)
 **Heroku is used for deployment**
 *First time it takes time to load, free version of Heroku works that way. Unless any request comes every half an hour to it.*
 
-## Assumptions
+## Assumptions/ Enhancements
 
 1. Phone validation is not correct, need to add proper validation. Need proper requirements as every country has it's own format.
 2. Event field 'allday' default: false
 3. While Importing event first user considered as creator
 4. User having more than one overlapping events. In such case consider the rsvp of last overlapping event to be `yes` - This is handled by model callback
-5. Didn't understand the 'Slot' thing, so assumed to filter by user id with date range.
-6. Didn't want to commit csv files but to make it work, commited files.
 
 ## Tech Stack with version
   1. `Ruby 2.6.3`
@@ -36,9 +36,9 @@ A user can choose to attend an event, in such case, if there is another overlapp
   4. [BEM CSS standards](https://en.bem.info/methodology/quick-start/) (limited but mostly bootstrap is used)
   5. Linters
   (Presenter pattern could've been used)
-  *Many things can be improved*
+  *More standards can be used as well*
 
-# Understanding Code 
+# Understanding Code
   - Comments have been added, if not understood mail at duttdongare30@gmail.com
   - alternatively generate documentation using `yardoc app/services/**/*.rb app/models/**/*.rb` and open doc/index.html in browser
 
