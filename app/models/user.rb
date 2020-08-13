@@ -4,8 +4,8 @@ class User < ApplicationRecord
   # TODO: country to country varies, need to update the logic
 
   validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, format: { with: ALLOWED_EMAIL_REGEX }
-  validates :phone, presence: true, format: { with: ALLOWED_PHONE_REGEX }
+  validates :email, presence: true, uniqueness: true, format: { with: ALLOWED_EMAIL_REGEX }
+  validates :phone, presence: true, uniqueness: true, format: { with: ALLOWED_PHONE_REGEX }
 
   has_many :event_users
   has_many :events, through: :event_users, dependent: :destroy

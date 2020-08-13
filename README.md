@@ -21,13 +21,15 @@ The data must be feeded from the CSVs, they must be parsed properly and feeded i
 2. Event field 'allday' default: false
 3. While Importing event first user considered as creator
 4. User having more than one overlapping events. In such case consider the rsvp of last overlapping event to be `yes` - This is handled by model callback
+5. If allday is true, endtime is considered as same day as starttime day with  11.59 pm as time (end_of_day).
 
 ## Tech Stack with version
   1. `Ruby 2.6.3`
   2. `Rails 6.0.2`
   3. `Postgres 9.5`
   4. CSS Framework - `Bootstrap 4`
-  5. Heroku - for deployment
+  5. JavaScript
+  6. Heroku - for deployment
 
 ## Standards to follow
   1. [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
@@ -39,8 +41,8 @@ The data must be feeded from the CSVs, they must be parsed properly and feeded i
   *More standards can be used as well*
 
 # Understanding Code
-  - Comments have been added, if not understood mail at duttdongare30@gmail.com
-  - alternatively generate documentation using `yardoc app/services/**/*.rb app/models/**/*.rb` and open doc/index.html in browser
+  - Comments have been added, if not understood kindly mail at duttdongare30@gmail.com
+  - Alternatively generate documentation using `yardoc app/services/**/*.rb app/models/**/*.rb` and open doc/index.html in browser
 
 
 ## Setup instructions
@@ -51,9 +53,10 @@ The data must be feeded from the CSVs, they must be parsed properly and feeded i
   4. `rails db:migrate`
   5. `rails db:seed`
 
-## Pending.
+## Pending tasks/enhancements
   - Unit Test cases
   - Manual testing
   - Some TODOs are pending mentioned with #TODO
+  - Front end enhancements like setting active for page, resetting the date etc.
   - Code style corrections suggested by linters, Rubocop and Rails Best Practices
   - Presenter pattern could've been used instead of view logic and helpers
